@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Fashion Store</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:#f4f4f4;
+}
+
+header{
+background:#111;
+color:white;
+padding:25px;
+text-align:center;
+}
+
+input{
+width:300px;
+padding:12px;
+border-radius:20px;
+border:none;
+}
+
+
+nav{
+background:#333;
+padding:15px;
+text-align:center;
+}
+
+nav a{
+color:white;
+margin:20px;
+text-decoration:none;
+}
+
+
+.products{
+display:flex;
+justify-content:center;
+gap:25px;
+flex-wrap:wrap;
+padding:30px;
+}
+
+
+.card{
+background:white;
+width:230px;
+padding:15px;
+border-radius:15px;
+text-align:center;
+box-shadow:0 0 10px gray;
+}
+
+
+.card img{
+width:100%;
+height:250px;
+object-fit:cover;
+border-radius:10px;
+}
+
+
+button{
+background:#ff4081;
+color:white;
+border:none;
+padding:10px 20px;
+border-radius:20px;
+cursor:pointer;
+}
+
+
+#details{
+display:none;
+position:fixed;
+top:20%;
+left:30%;
+width:40%;
+background:white;
+padding:25px;
+border-radius:15px;
+box-shadow:0 0 20px black;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<h1>🛍️ Trendy Fashion Store</h1>
+
+<input type="text" id="search"
+placeholder="Search fashion..."
+onkeyup="searchItem()">
+
+</header>
+
+
+<nav>
+
+<a href="#">Home</a>
+<a href="#">Women</a>
+<a href="#">Men</a>
+<a href="#">Accessories</a>
+
+</nav>
+
+
+
+<div class="products">
+
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1483985988355-763728e1935b">
+
+<h2>Women Dress</h2>
+
+<p>Party Wear Dress</p>
+
+<h3>₹1499</h3>
+
+<button onclick="showDetails('Women Dress','₹1499','Beautiful party wear dress')">
+Buy Now
+</button>
+
+</div>
+
+
+
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab">
+
+<h2>Men T-Shirt</h2>
+
+<p>Cotton T-Shirt</p>
+
+<h3>₹799</h3>
+
+<button onclick="showDetails('Men T-Shirt','₹799','Comfortable cotton wear')">
+Buy Now
+</button>
+
+</div>
+
+
+
+
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff">
+
+<h2>Shoes</h2>
+
+<p>Sports Shoes</p>
+
+<h3>₹2499</h3>
+
+<button onclick="showDetails('Shoes','₹2499','Premium running shoes')">
+Buy Now
+</button>
+
+</div>
+
+
+
+
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3">
+
+<h2>Hand Bag</h2>
+
+<p>Luxury Bag</p>
+
+<h3>₹1999</h3>
+
+<button onclick="showDetails('Hand Bag','₹1999','Stylish leather handbag')">
+Buy Now
+</button>
+
+</div>
+
+
+
+</div>
+
+
+
+
+<div id="details">
+
+<h2>Product Details</h2>
+
+<p id="info"></p>
+
+<button onclick="closeDetails()">Close</button>
+
+</div>
+
+
+
+
+
+<script>
+
+
+function showDetails(name,price,desc){
+
+document.getElementById("details").style.display="block";
+
+document.getElementById("info").innerHTML=
+
+"Product: "+name+
+"<br>Price: "+price+
+"<br>Description: "+desc;
+
+}
+
+
+
+function closeDetails(){
+
+document.getElementById("details").style.display="none";
+
+}
+
+
+
+
+function searchItem(){
+
+let value=document.getElementById("search").value.toLowerCase();
+
+let items=document.getElementsByClassName("card");
+
+
+for(let i=0;i<items.length;i++){
+
+let text=items[i].innerText.toLowerCase();
+
+
+if(text.includes(value)){
+
+items[i].style.display="block";
+
+}
+
+else{
+
+items[i].style.display="none";
+
+}
+
+}
+
+}
+
+
+</script>
+
+
+</body>
+</html>
